@@ -58,6 +58,9 @@ dependencies {
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
 
+    implementation(project(":data"))
+    implementation(project(":domain"))
+
     implementation(libs.hilt.android)
 
 }

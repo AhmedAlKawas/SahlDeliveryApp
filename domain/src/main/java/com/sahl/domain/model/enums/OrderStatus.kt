@@ -3,5 +3,7 @@ package com.sahl.domain.model.enums
 enum class OrderStatus {
     Preparing,
     OutForDelivery,
-    Delivered
+    Delivered,
+    Cancelled,
+    Unknown
 }
