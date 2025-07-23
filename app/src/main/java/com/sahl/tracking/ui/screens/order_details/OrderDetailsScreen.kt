@@ -18,6 +18,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.sahl.domain.model.enums.statusToString
 
 @Composable
 fun OrderDetailsScreen(
@@ -54,7 +55,7 @@ fun OrderDetailsScreen(
         Spacer(modifier = Modifier.height(24.dp))
 
         Text(
-            text = status.name,
+            text = statusToString(status),
             style = MaterialTheme.typography.bodyLarge,
             color = MaterialTheme.colorScheme.secondary
         )

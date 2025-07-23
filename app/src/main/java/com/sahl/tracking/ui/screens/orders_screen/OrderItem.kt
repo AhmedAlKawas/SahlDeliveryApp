@@ -13,6 +13,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import com.sahl.domain.model.Order
+import com.sahl.domain.model.enums.statusToString
 
 @Composable
 fun OrderItem(order: Order, onItemClick: () -> Unit) {
@@ -29,7 +30,7 @@ fun OrderItem(order: Order, onItemClick: () -> Unit) {
             Text(text = "Order ID: ${order.id}", style = MaterialTheme.typography.titleMedium)
             Text(text = "Customer: ${order.costumerName}")
             Text(text = "Restaurant: ${order.restaurant}")
-            Text(text = "Status: ${order.status}", color = Color.Gray)
+            Text(text = "Status: ${statusToString(order.status)}", color = Color.Gray)
         }
     }
 }
