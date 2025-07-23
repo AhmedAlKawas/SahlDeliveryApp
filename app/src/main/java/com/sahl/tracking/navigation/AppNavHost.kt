@@ -6,8 +6,10 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import androidx.navigation.toRoute
 import com.sahl.tracking.model.AppConstants.NAV_TRANSITION_DURATION
-import com.sahl.tracking.ui.screens.OrdersScreen
+import com.sahl.tracking.ui.screens.order_details.OrderDetailsScreen
+import com.sahl.tracking.ui.screens.orders_screen.OrdersScreen
 
 @Composable
 fun AppNavHost(
@@ -44,8 +46,23 @@ fun AppNavHost(
     ) {
 
         composable<OrdersScreenRoute> {
-            OrdersScreen(
+            OrdersScreen(onOrderItemClick = {
+                navController.navigate(
+                    OrderDetailsScreenRoute(
+                        orderId = it.id,
+                        restaurant = it.restaurant
+                    )
+                )
+            })
+        }
 
+        composable<OrderDetailsScreenRoute> { backStackEntry ->
+
+            val route = backStackEntry.toRoute<OrderDetailsScreenRoute>()
+
+            OrderDetailsScreen(
+                orderId = route.orderId,
+                restaurant = route.restaurant
             )
         }
 

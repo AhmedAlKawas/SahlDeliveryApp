@@ -1,4 +1,4 @@
-package com.sahl.tracking.ui.screens
+package com.sahl.tracking.ui.screens.orders_screen
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
@@ -15,10 +15,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.sahl.domain.model.Order
 import com.sahl.tracking.model.OrdersUiState
 
 @Composable
-fun OrdersScreen(viewModel: OrdersViewModel = hiltViewModel()) {
+fun OrdersScreen(onOrderItemClick: (Order) -> Unit, viewModel: OrdersViewModel = hiltViewModel()) {
 
     val uiState by viewModel.uiState.collectAsState()
 
@@ -40,7 +41,7 @@ fun OrdersScreen(viewModel: OrdersViewModel = hiltViewModel()) {
                     .padding(16.dp)
             ) {
                 items(orders) { order ->
-                    OrderItem(order)
+                    OrderItem(order) { onOrderItemClick(order) }
                 }
             }
         }

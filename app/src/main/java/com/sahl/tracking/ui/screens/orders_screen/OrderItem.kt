@@ -1,5 +1,6 @@
-package com.sahl.tracking.ui.screens
+package com.sahl.tracking.ui.screens.orders_screen
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -14,11 +15,14 @@ import androidx.compose.ui.unit.dp
 import com.sahl.domain.model.Order
 
 @Composable
-fun OrderItem(order: Order) {
+fun OrderItem(order: Order, onItemClick: () -> Unit) {
     Card(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(vertical = 8.dp),
+            .padding(vertical = 8.dp)
+            .clickable {
+                onItemClick()
+            },
         elevation = CardDefaults.cardElevation(4.dp)
     ) {
         Column(modifier = Modifier.padding(16.dp)) {
