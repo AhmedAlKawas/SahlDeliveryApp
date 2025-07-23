@@ -1,14 +1,11 @@
-package com.sahl.domain.repository
+package com.sahl.data.source.remote.web_socket.service
 
-import com.sahl.domain.model.Order
 import com.sahl.domain.model.enums.OrderStatus
 import kotlinx.coroutines.flow.Flow
 
-interface OrdersRepository {
+interface OrderDetailsService {
 
     val orderDetailsFlow: Flow<OrderStatus>
-
-    fun getListOfUserOrders(): List<Order>
 
     suspend fun startOrderDetailsListener(orderId: Long)
 

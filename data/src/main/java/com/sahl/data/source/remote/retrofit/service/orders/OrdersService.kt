@@ -1,4 +1,4 @@
-package com.sahl.data.source.remote.service.orders
+package com.sahl.data.source.remote.retrofit.orders.service
 
 import com.sahl.data.model.dto.OderDto
 
